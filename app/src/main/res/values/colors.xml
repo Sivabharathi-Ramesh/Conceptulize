@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <color name="lavender_soft">#F3E5F5</color>
+        <color name="lavender_accent">#7E57C2</color>
+        <color name="glass_white">#CCFFFFFF</color> <color name="quote_text">#5E35B1</color>
+        <color name="white">#FFFFFF</color>
+        <color name="lavender_brand">#7E57C2</color>
+        <color name="lavender_soft_bg">#F3E5F5</color>
+        <color name="text_main">#1A1A1A</color>
+        <color name="text_sub">#666666</color>
+
+</resources>

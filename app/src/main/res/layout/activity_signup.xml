@@ -6,17 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7F2FA"
-    android:padding="24dp">
+    android:padding="24dp"
+    tools:context=".SignupActivity">
 
     <TextView
         android:id="@+id/tvCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Create Account"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="#1A1A1A"
+        android:textColor="#99227E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,11 +34,12 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="214dp"
-        android:layout_height="169dp"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
         android:layout_marginTop="8dp"
-        android:padding="20dp"
+        android:padding="10dp"
         android:src="@drawable/logo"
+        android:contentDescription="App Logo"
         app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -46,8 +48,9 @@
         android:id="@+id/formScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/ivLogo"
         app:layout_constraintBottom_toTopOf="@id/btnCreateAccount">
 
@@ -59,13 +62,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:text="Full Name"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
             <EditText
+                android:id="@+id/etFullName"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="54dp"
                 android:background="@drawable/bg_input_field"
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="12dp"
@@ -76,33 +79,120 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="Email ID"
-                android:textStyle="bold" />
-
+                android:text="School Email ID"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
             <EditText
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="54dp"
                 android:background="@drawable/bg_input_field"
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="12dp"
-                android:hint="example@school.com"
+                android:hint="name@gmail.com"
                 android:paddingStart="16dp"
                 android:inputType="textEmailAddress" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="Password"
-                android:textStyle="bold" />
-
-            <EditText
+                android:text="Grade Range"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menuGrade"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="#F3E5F5"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="false">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etGrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:inputType="none"
+                    android:hint="Select Grade"
+                    android:paddingStart="16dp"
+                    android:drawableStart="@drawable/ic_grade"
+                    android:drawablePadding="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvStreamLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Stream (Grade 11-12 only)"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menuStream"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:boxBackgroundColor="#F3E5F5"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="false">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etStream"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:inputType="none"
+                    android:hint="Science / Commerce / Arts"
+                    android:paddingStart="16dp"
+                    android:drawableStart="@drawable/ic_grade"
+                    android:drawablePadding="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Name"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+            <EditText
+                android:id="@+id/etSchoolName"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
                 android:background="@drawable/bg_input_field"
+                android:drawableStart="@drawable/ic_school"
+                android:drawablePadding="12dp"
+                android:hint="Your school name"
+                android:paddingStart="16dp"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_input_field"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="12dp"
                 android:hint="Create a password"
                 android:paddingStart="16dp"
                 android:inputType="textPassword" />
@@ -110,26 +200,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="Retype Password"
-                android:textStyle="bold" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:text="Confirm Password"
+                android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"/>
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
                 android:background="@drawable/bg_input_field"
-                android:hint="Confirm password"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="12dp"
+                android:hint="Retype password"
                 android:paddingStart="16dp"
                 android:inputType="textPassword" />
+
         </LinearLayout>
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCreateAccount"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/btn_rounded_lavender"
         android:text="Create Account"
@@ -156,10 +248,11 @@
             android:id="@+id/tvSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login In"
+            android:text="Sign In"
             android:textColor="#7E57C2"
             android:textStyle="bold"
-            android:padding="4dp"/>
+            android:padding="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

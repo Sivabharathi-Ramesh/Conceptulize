@@ -1,0 +1,30 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.conceptulize.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_learn"
+        android:name="com.example.conceptulize.LearnFragment"
+        tools:layout="@layout/fragment_learn" />
+
+    <fragment
+        android:id="@+id/nav_doubts"
+        android:name="com.example.conceptulize.DoubtsFragment"
+        tools:layout="@layout/fragment_doubts" />
+
+    <fragment
+        android:id="@+id/nav_groups"
+        android:name="com.example.conceptulize.GroupsFragment"
+        tools:layout="@layout/fragment_groups" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.conceptulize.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
